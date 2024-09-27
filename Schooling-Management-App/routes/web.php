@@ -34,5 +34,6 @@ Route::middleware([
 
     Route::prefix('settings')->group(function () {
         Route::get('/', [SchoolYearController::class, 'index'])->name('settings');
+        Route::get('/create-school-year', [SchoolYearController::class, 'create'])->name('settings.create_school_year');
     });
 });
