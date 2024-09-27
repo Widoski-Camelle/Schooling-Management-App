@@ -19,17 +19,26 @@ class CreateSchoolYear extends Component
         try {
             $currentYear = Carbon::now()->format('Y');
 
-            $schoolYear->school_year = $this->libelle;
-            $schoolYear->current_year = $currentYear;
+            $check = SchoolYear::where('current_year', $currentYear)->get();
+            
+            $alreadyExist = $check->count();
 
-            $schoolYear->save();
+            if ($alreadyExist >= 1) {
+                return redirect()->back()->with('error', 'L\'année en cours a déjà été ajoutée !');
+            } else {
+                $schoolYear->school_year = $this->libelle;
+                $schoolYear->current_year = $currentYear;
 
-            if ($schoolYear)
-            {
-                $this->libelle = '';
+                $schoolYear->save();
+
+                if ($schoolYear)
+                {
+                    $this->libelle = '';
+                }
+                return redirect()->back()->with('success', 'Année scolaire ajoutée');
             }
-            return redirect()->back()->with('success', 'Année scolaire ajoutée');
-        } catch (Exception $e) {
+        } catch (Exception $e)
+        {
             // Sera pris en compte si on a un problème
 
         }

@@ -3,6 +3,13 @@
     <form method="post" wire:submit.prevent="store">
         @csrf
         @method('post')
+
+        @if (Session::get('error'))
+            <div class="p-5">
+                <div class="p-4 border-red-500 bg-red-400 animate-bounce text-white">{{ Session::get('error') }}</div>
+            </div>
+        @endif
+
         <div class="p-5">
             <x-label value="{{__('Libellé de l année scolaire')}}" />
             <input type="text" class="block mt-1 rounded-md border-gray-300 @error('libelle') border-red-500 bg-red-100 animate-bounce @enderror w-full"
