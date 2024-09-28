@@ -55,10 +55,11 @@
                             @endforelse
                             
                         </tbody>
-
                     </table>
 
-                    <!-- Pagination -->
+                    <div class="mt-3">
+                        {{ $schoolYearList -> links() }}
+                    </div>
                 </div>
             </div>
         </div>
