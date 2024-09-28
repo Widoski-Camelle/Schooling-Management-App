@@ -7,13 +7,13 @@
             <a href="{{route('settings.create_school_year')}}" class="bg-blue-500 rounded-md p-2 text-sm text-white">Nouvelle Année Scolaire</a>
         </div>
 
-        <div class="flex flex-col">
-            <!-- Message qui apparaîtra après opération -->
+        <!-- Message qui apparaîtra après opération -->
 
-            <div class="block p-2 bg-green-500 text-white rounded-sm shadow-sm mt-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. A, tempore.
+        @if (Session::get('success'))
+            <div class="p-5">
+                <div class="block p-2 bg-green-500 text-white rounded-sm shadow-sm mt-2">{{ Session::get('success') }}</div>
             </div>
-        </div>
+        @endif
 
         <!-- Styliser le tableau -->
 
@@ -24,25 +24,36 @@
 
                         <thead class="border-b bg-gray-50">
                             <tr>
-                                <th class="text-sm font-medium text-gray-900 px-6 py-6">Libellé</th>
-                                <th class="text-sm font-medium text-gray-900 px-6 py-6">Libellé</th>
-                                <th class="text-sm font-medium text-gray-900 px-6 py-6">Libellé</th>
-                                <th class="text-sm font-medium text-gray-900 px-6 py-6">Libellé</th>
+                                <th class="text-sm font-medium text-gray-900 px-6 py-6">Id</th>
+                                <th class="text-sm font-medium text-gray-900 px-6 py-6">Année Scolaire</th>
+                                <th class="text-sm font-medium text-gray-900 px-6 py-6">Statut</th>
+                                <th class="text-sm font-medium text-gray-900 px-6 py-6">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="border-b-2 border-gray-100">
-                                <td class="text-sm font-medium text-gray-900 px-6 py-6">Libellé Exemple</td>
-                                <td class="text-sm font-medium text-gray-900 px-6 py-6">Libellé Exemple</td>
-                                <td class="text-sm font-medium text-gray-900 px-6 py-6">Libellé Exemple</td>
-                                <td class="text-sm font-medium text-gray-900 px-6 py-6">Libellé Exemple</td>
-                            </tr>
-                            <tr class="border-b-2 border-gray-100">
-                                <td class="text-sm font-medium text-gray-900 px-6 py-6">Libellé Exemple</td>
-                                <td class="text-sm font-medium text-gray-900 px-6 py-6">Libellé Exemple</td>
-                                <td class="text-sm font-medium text-gray-900 px-6 py-6">Libellé Exemple</td>
-                                <td class="text-sm font-medium text-gray-900 px-6 py-6">Libellé Exemple</td>
-                            </tr>
+                            @forelse($schoolYearList as $item)
+                                <tr class="border-b-2 border-gray-100">
+                                    <td class="text-sm font-medium text-gray-900 px-6 py-6">{{ $item->id }}</td>
+                                    <td class="text-sm font-medium text-gray-900 px-6 py-6">{{ $item->school_year }}</td>
+                                    <td class="text-sm font-medium text-gray-900 px-6 py-6">
+                                        @if ($item->active >= 1)
+                                            <span class="p-1 text-sm bg-green-400 text-white rounded-sm">Actif</span>
+                                        @else
+                                            <span class="p-1 text-sm bg-red-400 text-white rounded-sm">Inactif</span>
+                                        @endif
+                                    </td>
+                                    <td class="text-sm font-medium text-gray-900 px-6 py-6">
+                                        @if ($item->active >= 1)
+                                            <button class="p-2 text-white bg-red-400 text-sm rounded-sm">Rendre inactif</button>
+                                        @else
+                                            <button class="p-2 text-white bg-green-400 text-sm rounded-sm">Rendre actif</button>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @empty
+
+                            @endforelse
+                            
                         </tbody>
 
                     </table>
