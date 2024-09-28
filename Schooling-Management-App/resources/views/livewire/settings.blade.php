@@ -3,7 +3,11 @@
         <!-- Titre et bouton créer -->
 
         <div class="flex justify-between items-center">
-            <h4>Liste des années scolaires</h4>
+            <div class="w-1/3">
+                <input type="text" class="block mt-1 rounded-md border-gray-300 w-full" placeholder="Rechercher"
+                wire:model="search">
+            </div>
+            
             <a href="{{route('settings.create_school_year')}}" class="bg-blue-500 rounded-md p-2 text-sm text-white">Nouvelle Année Scolaire</a>
         </div>
 
@@ -51,7 +55,11 @@
                                     </td>
                                 </tr>
                             @empty
-
+                                <tr>
+                                    <td class="colspan-4 flex justify-center items-center">
+                                        <img src="{{ asset('storage/empty.png') }}" alt="" class="w-20 h-20">
+                                    </td>
+                                </tr>
                             @endforelse
                             
                         </tbody>
