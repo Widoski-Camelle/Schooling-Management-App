@@ -57,7 +57,7 @@
                             @empty
                                 <tr>
                                     <td class="colspan-4 flex justify-center items-center">
-                                        <img src="{{ asset('storage/empty.png') }}" alt="" class="w-20 h-20">
+                                        <img src="{{ asset('storage/empty.svg') }}" alt="" class="w-20 h-20">
                                     </td>
                                 </tr>
                             @endforelse
