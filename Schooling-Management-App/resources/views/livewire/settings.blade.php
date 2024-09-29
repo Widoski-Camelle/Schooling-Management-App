@@ -47,11 +47,7 @@
                                         @endif
                                     </td>
                                     <td class="text-sm font-medium text-gray-900 px-6 py-6">
-                                        @if ($item->active >= 1)
-                                            <button class="p-2 text-white bg-red-400 text-sm rounded-sm">Rendre inactif</button>
-                                        @else
-                                            <button class="p-2 text-white bg-green-400 text-sm rounded-sm">Rendre actif</button>
-                                        @endif
+                                            <button class="p-2 text-white {{ $item->active == 1 ? 'bg-red-400' : 'bg-green-400' }} text-sm rounded-sm" wire:click="toggleStatus({{ $item->id }})"> {{ $item->active == 1 ? 'Rendre inactif' : 'Rendre actif' }} </button>
                                     </td>
                                 </tr>
                             @empty

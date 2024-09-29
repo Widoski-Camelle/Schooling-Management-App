@@ -12,6 +12,17 @@ class Settings extends Component
 
     public $search = '';
 
+    public function toggleStatus(SchoolYear $schoolYear) 
+    {
+        // Mettre toutes les lignes actives de la table à 0
+        $query = SchoolYear::where('active', '1')->update(['active'=>'0']);
+
+        // Mettre à jour le statut de l'enregistrement grâce à son id
+        $schoolYear->active = '1';
+        $schoolYear->save();
+        $this->render();
+    }
+
     public function render()
     {
         if (!empty($this->search))
