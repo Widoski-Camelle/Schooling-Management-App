@@ -55,9 +55,14 @@
                                     </td>
                                 </tr>
                             @empty
-                                <tr>
-                                    <td class="colspan-4 flex justify-center items-center">
-                                        <img src="{{ asset('storage/empty.svg') }}" alt="" class="w-20 h-20">
+                                <tr class="w-full">
+                                    <td class="flex-1 w-full items-center justify-center" colspan="4">
+                                        <div>
+                                            <p class="flex justify-center content-center p-4">
+                                                <img src="{{ asset('storage/empty.svg') }}" alt="" class="w-20 h-20">
+                                                <div>Aucun élément trouvé !</div>
+                                            </p>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforelse
