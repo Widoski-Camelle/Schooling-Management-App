@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('levels', function (Blueprint $table) {
             $table->id();
+            $table->string('code');
+            $table->string('libelle');
+            $table->integer('scolarite');
+            $table->unsignedBigInteger('school_year_id');
+            $table->foreign('school_year_id')->references('id')->on('school_years');
             $table->timestamps();
         });
     }
