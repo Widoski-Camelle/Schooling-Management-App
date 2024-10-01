@@ -20,7 +20,7 @@ class Settings extends Component
         // Mettre à jour le statut de l'enregistrement grâce à son id
         $schoolYear->active = '1';
         $schoolYear->save();
-        $this->render();
+        $this->render();    
     }
 
     public function render()
