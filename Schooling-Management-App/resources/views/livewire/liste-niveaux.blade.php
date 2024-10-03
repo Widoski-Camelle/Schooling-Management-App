@@ -8,7 +8,7 @@
                 wire:model="search">
             </div>
             
-            <a href="{{route('settings.create_school_year')}}" class="bg-blue-500 rounded-md p-2 text-sm text-white">Ajouter niveau</a>
+            <a href="{{route('settings.create_levels')}}" class="bg-blue-500 rounded-md p-2 text-sm text-white">Ajouter niveau</a>
         </div>
 
         <!-- Message qui apparaîtra après opération -->

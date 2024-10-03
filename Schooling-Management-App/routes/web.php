@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NiveauController;
 use App\Http\Controllers\SchoolYearController;
+use App\Http\Controllers\LevelsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,11 +30,13 @@ Route::middleware([
     })->name('dashboard');
 
     Route::prefix('niveaux')->group(function () {
-        Route::get('/', [NiveauController::class, 'index'])->name('niveaux');
+        Route::get('/', [LevelsController::class, 'index'])->name('niveaux');
     });
 
     Route::prefix('settings')->group(function () {
         Route::get('/', [SchoolYearController::class, 'index'])->name('settings');
         Route::get('/create-school-year', [SchoolYearController::class, 'create'])->name('settings.create_school_year');
+        
+        Route::get('/create-level', [LevelsController::class, 'create'])->name('settings.create_levels');
     });
 });
