@@ -17,7 +17,7 @@
                     wire:model="code" name="code">
 
                 @error('code')
-                    <div class="text text-red-500 mt-1">*Le champ code est requis.</div>
+                    <div class="text text-red-500 mt-1">{{ $message }}</div>
                 @enderror
             </div>
             <div class="block mb-5">

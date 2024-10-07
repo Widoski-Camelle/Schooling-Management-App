@@ -39,6 +39,9 @@
                             @forelse($levels as $item)
                                 <tr class="border-b-2 border-gray-100">
                                     <td class="text-sm font-medium text-gray-900 px-6 py-6">{{ $item->id }}</td>
+                                    <td class="text-sm font-medium text-gray-900 px-6 py-6">{{ $item->code }}</td>
+                                    <td class="text-sm font-medium text-gray-900 px-6 py-6">{{ $item->libelle }}</td>
+                                    <td class="text-sm font-medium text-gray-900 px-6 py-6">{{ $item->scolarite }}</td>
                                 </tr>
                             @empty
                                 <tr class="w-full">
