@@ -6,6 +6,6 @@
     </x-slot>
 
     <div class="py-2 px-12">
-        <livewire:edit-level />
+        <livewire:edit-level :level="$level" />
     </div>
 </x-app-layout>
