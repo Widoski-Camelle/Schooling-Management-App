@@ -38,5 +38,6 @@ Route::middleware([
         Route::get('/create-school-year', [SchoolYearController::class, 'create'])->name('settings.create_school_year');
         
         Route::get('/create-level', [LevelsController::class, 'create'])->name('settings.create_levels');
+        Route::get('/edit-level/{id}', [LevelsController::class, 'edit'])->name('settings.edit_level');
     });
 });
