@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NiveauController;
 use App\Http\Controllers\SchoolYearController;
 use App\Http\Controllers\LevelsController;
+use App\Http\Controllers\ClassesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +40,9 @@ Route::middleware([
         
         Route::get('/create-level', [LevelsController::class, 'create'])->name('settings.create_levels');
         Route::get('/edit-level/{level}', [LevelsController::class, 'edit'])->name('settings.edit_level');
+    });
+
+    Route::prefix('classes')->group(function() {
+        Route::get('/', [ClassesController::class, 'index'])->name('classes');
     });
 });
