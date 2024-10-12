@@ -13,6 +13,13 @@ class ListeNiveaux extends Component
 
     public $search = '';
 
+    public function delete(Level $level)
+    {
+        $level->delete();
+
+        return redirect()->route('niveaux')->with('success', 'Niveau supprimé');
+    }
+
     public function render()
     {
         if (!empty($this->search))

@@ -42,8 +42,9 @@
                                     <td class="text-sm font-medium text-gray-900 px-6 py-6">{{ $item->code }}</td>
                                     <td class="text-sm font-medium text-gray-900 px-6 py-6">{{ $item->libelle }}</td>
                                     <td class="text-sm font-medium text-gray-900 px-6 py-6">{{ $item->scolarite }}</td>
-                                    <td>
+                                    <td class="flex">
                                         <a href="{{route('settings.edit_level', $item->id)}}" class="text-sm bg-blue-500 p-1 text-white rounded-sm">Modifier</a>
+                                        <div wire:click="delete({{$item->id}})" class="text-sm bg-red-500 p-1 text-white rounded-sm">Supprimer</div>
                                     </td>
                                 </tr>
                             @empty
