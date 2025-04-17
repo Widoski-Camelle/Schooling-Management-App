@@ -10,4 +10,9 @@ class ClassesController extends Controller
     {
         return view('classes.list');
     }
+
+    public function create()
+    {
+        return view('classes.create');
+    }
 }

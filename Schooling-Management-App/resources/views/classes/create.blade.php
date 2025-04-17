@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Liste des classes') }}
+            {{ __('Nouvelle classe') }}
         </h2>
     </x-slot>
 
     <div class="py-2 px-12">
-        <livewire:liste-classe />
+        <livewire:create-classe />
     </div>
 </x-app-layout>

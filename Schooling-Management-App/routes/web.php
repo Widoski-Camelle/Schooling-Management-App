@@ -44,5 +44,6 @@ Route::middleware([
 
     Route::prefix('classes')->group(function() {
         Route::get('/', [ClassesController::class, 'index'])->name('classes');
+        Route::get('/create', [ClassesController::class, 'create'])->name('classes.create');
     });
 });
